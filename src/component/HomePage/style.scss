@@ -1,0 +1,49 @@
+.body {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    overflow: hidden;
+    .card-item {
+        text-align: center;
+        width: 220px !important;
+        border-radius: 20px !important;
+        margin: 10px !important;
+        border-color: #097b7b !important;
+        transition-duration: 0.3s;
+        font-weight: 600;
+        &:hover {
+            background-color: #30cfcf;
+            color: white;
+            box-shadow: 0px 6px 20px 3px#bef5f5;
+            border-color: #30cfcf!important;
+        }
+    }
+    .add-board {
+        position: absolute;
+        content: "";
+        right: 10px;
+        top: 10px;
+        background-color: #0dc7c6;
+        border-radius: 7px;
+        border-color: transparent !important;
+        font-size: 1.2rem;
+        height: auto !important;
+        &:hover {
+            background-color: #0dc7c6;
+        }
+        &:active {
+            background-color: #0dc7c6;
+        }
+        &:visited {
+            background-color: #0dc7c6;
+        }
+        &:focus {
+            background-color: #0dc7c6;
+        }
+        .icon-add {
+            color: white !important;
+            padding-right: 5px;
+            padding-bottom: 2px;
+        }
+    }
+}
