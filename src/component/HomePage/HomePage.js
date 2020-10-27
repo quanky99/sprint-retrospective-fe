@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {  Container, Form, Modal } from "react-bootstrap";
+import { Container, Form, Modal } from "react-bootstrap";
 import config from "../../config/config.json";
-import { Button, Card } from "antd";
-import { AiOutlineFileAdd} from "react-icons/ai";
+import { Button, Card, Row, Col, Divider } from "antd";
+import { AiOutlineFileAdd } from "react-icons/ai";
 import Axios from "axios";
 
 import "./style.scss";
@@ -34,26 +34,46 @@ function HomePage() {
 
   const showListBoard = (board) => {
     const src =
-      (board &&
-        board.map((item) => (
-          <Card className="card-item" key={item.id}>
-            {item.name}
-          </Card>
-        ))) ||
-      [];
-     src.push(
-      <Button type="primary" className="add-board" onClick={() => setShowPopup(true)}><AiOutlineFileAdd className="icon-add"/> board </Button>
-    //   <Card className="board-card">
-    //     <Card.Body onClick={() => setShowPopup(true)}>
-    //       <i className="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
-    //     </Card.Body>
-    //   </Card>
-     );
+      (
+        <Row>
+          {board &&
+            board.map((item) => (
+              <Col span={4}>
+                <Card className="card-item" key={item.id}>
+                  {item.name}
+                </Card>
+              </Col>
+            ))}
+        </Row>
+      ) || [];
+    // src.push(
+    //   <Button
+    //     type="primary"
+    //     className="add-board"
+    //     onClick={() => setShowPopup(true)}
+    //   >
+    //     <AiOutlineFileAdd className="icon-add" /> board{" "}
+    //   </Button>
+    //   //   <Card className="board-card">
+    //   //     <Card.Body onClick={() => setShowPopup(true)}>
+    //   //       <i className="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
+    //   //     </Card.Body>
+    //   //   </Card>
+    // );
     return src;
   };
   return (
     <>
-     <div className="body">{showListBoard(board)}</div>
+      <div className="body">
+        {showListBoard(board)}
+        <Button
+          type="primary"
+          className="add-board"
+          onClick={() => setShowPopup(true)}
+        >
+          <AiOutlineFileAdd className="icon-add" /> board{" "}
+        </Button>
+      </div>
       <Modal show={showPopup} onHide={() => setShowPopup(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Add board</Modal.Title>
